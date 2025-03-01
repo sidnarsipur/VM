@@ -6,7 +6,7 @@
 //No of physical frames = 2^16 / 2^11 = 2^5 = 32
 
 //Each virtual address contains 32 bits: 21 bits (page number) and 11 bits (offset)
-//Each page table entry contains 6 bits: 1 bit (valid bit) and 5 bits (frame number)
+//Each page table entry contains 8 bits: 1 free bit (to be used), 1 dirty bit, 1 valid bit, and 5 bits (frame number)
 
 //Each page table has 2^21 page table entries.
 
@@ -29,7 +29,7 @@ impl Memory {
 }
   
 struct PageTable {
-    data: [u8; 2097152] //21-bit virtual page no; Lower 6 bits are used as PTE.
+    data: [u8; 2097152] //21-bit virtual page no
 }
 
 impl PageTable {
