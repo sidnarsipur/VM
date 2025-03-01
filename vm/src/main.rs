@@ -11,7 +11,7 @@
 //Each page table has 2^21 page table entries.
 
 struct Memory {
-    data: [u8; 65536],   
+    data: [u8; 65536], //16-bit physical page no that stores one byte
 }
 
 impl Memory {
@@ -29,7 +29,7 @@ impl Memory {
 }
   
 struct PageTable {
-    data: [u8; 2097152] //Using lower 6 bits of u8 as the PTE. 2097152 = 2^21 PTEs
+    data: [u8; 2097152] //21-bit virtual page no; Lower 6 bits are used as PTE.
 }
 
 impl PageTable {
